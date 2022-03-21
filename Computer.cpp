@@ -13,5 +13,4 @@ char Computer::makeMove(){
 
 }
 
-}
 

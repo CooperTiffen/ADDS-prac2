@@ -9,7 +9,7 @@ char PaperDoll::makeMove(){
     counter++;
 
     if(counter >= 3){
-        resetCounter();
+        counter = 0;
     }
 
     return choice;

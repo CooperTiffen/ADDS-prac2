@@ -9,7 +9,7 @@ Player* Tournament::run(std::array<Player*, 8> competitors){
     std::array<Player*, 4> stageTwo;
     std::array<Player*, 2> stageThree;
 
-    [0] = rounds(competitors[0], competitors[1]);
+    stageTwo[0] = rounds(competitors[0], competitors[1]);
 	stageTwo[1] = rounds(competitors[2], competitors[3]);
 	stageTwo[2] = rounds(competitors[4], competitors[5]);
 	stageTwo[3] = rounds(competitors[6], competitors[7]);

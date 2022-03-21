@@ -10,5 +10,3 @@ char Bureaucrat::makeMove(){
 
     return choice;
 }
-
-}
