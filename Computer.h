@@ -1,15 +1,16 @@
 #ifndef COMPUTER_H
 #define COMPUTER_H
-#include <iostream>
+#include "Player.h"
 
-class Computer{
+class Computer : public Player{
 
-//the makeMove function allows the computer player to choose their option for comparison.
-public:
-    Computer();
-    char makeMove();
-private:
-    char choice;
+	public:
+		Computer();
+		virtual char makeMove();
+
+	private:
+		char choice;
+
 };
 
 #endif

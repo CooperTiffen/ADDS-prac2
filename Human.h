@@ -1,16 +1,18 @@
 #ifndef HUMAN_H
 #define HUMAN_H
-#include <iostream>
 
-class Human{
+#include "Player.h"
 
-//Similar to the computer player, the makeMove function is utilised to allow the user to interact with the game.
-public:
-    Human();
-    char makeMove();
+class Human : public Player{
 
-private:
-    char choice;
+	public:
+		Human();
+		virtual char makeMove();
+
+
+	private:
+		char choice;
+
 };
 
 #endif

@@ -7,12 +7,11 @@
 
 class Referee{
 
-public:
-    Referee();
-    //This function is used to compare the 2 choices and return the result for the user.
-    char refGame(Human player1, Computer player2);
+	public:
+		Referee();
+		char refGame(Player * player1, Player * player2);
 
-private:
+	private:
 
 };
 
