@@ -1,29 +1,47 @@
-#include "Reverse.h"
-#include "TruckLoads.h"
-#include "EfficientTruckLoads.h"
-
+#include "FilterForTwoDigitPositive.h"
+#include "FilterGeneric.h"
+#include "FilterNonPositive.h"
+#include "FilterOdd.h"
+#include "MapAbsoluteValue.h"
+#include "MapGeneric.h"
+#include "MapSquare.h"
+#include "MapTriple.h"
+#include "ReduceGCD.h"
+#include "ReduceGeneric.h"
+#include "ReduceMinimum.h"
+#include <vector>
 #include <iostream>
-#include <stdlib.h>
-#include <string>
-
-using namespace std;
 
 int main(){
 
-    //create an object of each part.
-    Reverse a;
-    Truckloads b;
-    EfficientTruckloads c;
+    std::vector<int> values;
+    MapTriple mt;
+    MapSquare ms;
+    MapAbsoluteValue mav;
+    FilterOdd fo;
+    FilterNonPositive fnp;
+    FilterForTwoDigitPositive fftdp;
+    ReduceMinimum rm;
+    ReduceGCD rdgcd;
 
-    //testing part a
-    cout<<a.reverseString("Cooper")<<endl;
-    cout<<a.reverseDigit(12345)<<endl;
+    int number;
+    char c;
 
-    //testing part b
-    cout<<c.numTrucks(14, 3)<<endl;
+    do {
+        std::cin>>number;
+        values.push_back(number);
+        c= fgetc(stdin);
 
-    //testing part c - using same inputs as part b to ensure same results.
-    cout<<b.numTrucks(14,3)<<endl;
+    }while(c ==',');
+
+    values = mav.map(values);
+
+    values = mt.map(values);
+
+    values = fo.filter(values);
+    values = fftdp.filter(values);
+
+   std::cout<<rm.reduce(values)<< " " << rdgcd.reduce(values)<<std::endl;
 
     return 0;
 }
