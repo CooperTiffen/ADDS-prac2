@@ -9,6 +9,7 @@ public:
         FilterNonPositive();
 
 private:
+//takes and changes inherited function and  returns true if and only if x is non-positive.
         virtual bool g(int);
 };
 #endif

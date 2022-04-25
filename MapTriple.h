@@ -10,6 +10,7 @@ public:
         MapTriple();
 
 private:
+//takes and changes inherited function and triples input vector.
         virtual int f(int);
 };
 #endif

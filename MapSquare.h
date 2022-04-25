@@ -11,6 +11,7 @@ public:
         MapSquare();
 
 private:
+//takes and changes inherited function and squares input vector.
         virtual int f(int);
 };
 #endif

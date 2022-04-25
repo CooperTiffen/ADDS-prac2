@@ -9,6 +9,7 @@ public:
         ReduceGCD();
 
 private:
+//takes and changes inherited function and  returns the greatest common denominator of the two inputs.
         virtual int binaryOperator(int, int);
         virtual int ExtraFunction(std::vector<int> vect);
 };

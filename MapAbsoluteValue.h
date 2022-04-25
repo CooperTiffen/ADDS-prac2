@@ -11,6 +11,7 @@ public:
         MapAbsoluteValue();
 
 private:
+//takes and changes inherited function to return absolute value of input vector.
         virtual int f(int);
 };
 #endif
