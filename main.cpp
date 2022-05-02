@@ -1,47 +1,33 @@
-#include "FilterForTwoDigitPositive.h"
-#include "FilterGeneric.h"
-#include "FilterNonPositive.h"
-#include "FilterOdd.h"
-#include "MapAbsoluteValue.h"
-#include "MapGeneric.h"
-#include "MapSquare.h"
-#include "MapTriple.h"
-#include "ReduceGCD.h"
-#include "ReduceGeneric.h"
-#include "ReduceMinimum.h"
-#include <vector>
+#include "Individual.h"
+#include "Mutator.h"
+#include "BitFlip.h"
+#include "Rearrange.h"
+#include "BitFlipProb.h"
 #include <iostream>
+
+Individual * execute(Individual * indPtr, Mutator * mPtr, int k){
+
+    return mPtr->mutate(indPtr, k);
+}
 
 int main(){
 
-    std::vector<int> values;
-    MapTriple mt;
-    MapSquare ms;
-    MapAbsoluteValue mav;
-    FilterOdd fo;
-    FilterNonPositive fnp;
-    FilterForTwoDigitPositive fftdp;
-    ReduceMinimum rm;
-    ReduceGCD rdgcd;
+    BitFlip bf;
+    Rearrange r;
 
-    int number;
-    char c;
+    std::string binarystr1;
+    std::string binarystr2;
+    int k1;
+    int k2;
 
-    do {
-        std::cin>>number;
-        values.push_back(number);
-        c= fgetc(stdin);
+    std::cin>>binarystr1>>k1>>binarystr2>>k2;
 
-    }while(c ==',');
+    Individual first(binarystr1);
+    Individual second(binarystr2);
 
-    values = mav.map(values);
+    Individual * offspring = execute(&first, &bf, k1);
+    Individual * offspring2 = execute(&second, &r, k2);
 
-    values = mt.map(values);
-
-    values = fo.filter(values);
-    values = fftdp.filter(values);
-
-   std::cout<<rm.reduce(values)<< " " << rdgcd.reduce(values)<<std::endl;
-
-    return 0;
+    std::cout<<offspring->getString()<<" "<<offspring2->getString()<<" "<<offspring2->getMaxOnes()<<std::endl;
 }
+
