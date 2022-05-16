@@ -1,33 +1,40 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
 #include "BubbleSort.h"
 #include "QuickSort.h"
 #include "RecursiveBinarySearch.h"
-#include <vector>
-#include <iostream>
+
 
 int main(){
 
-    std::vector<int> vect{-5, -8, -4, -2, -1};
-      int length = vect.size();
+    std::vector<int> list;
+    std::string line;
+    std::getline(std::cin, line);
+    std::istringstream os(line);
 
-      BubbleSort Bub;
-        std::vector<int> BubVect = Bub.sort(vect);
+    int i;
+    while(os >> i)
+        list.push_back(i);
 
-       for(int i=0; i< length; i++){
-           std::cout<<BubVect.at(i)<<" ";
-       }
+    QuickSort QS;
+    std::vector<int> result = QS.sort(list);
 
     RecursiveBinarySearch RBS;
-    std::cout<<"Quicksort"<<std::endl;
+    bool output = RBS.search(result, 1);
 
-       QuickSort QS;
-      std::vector<int> Quick = QS.sort(vect);
-       std::cout<<"output1"<<std::endl;
-        for(int i=0; i< length; i++){
-           std::cout<<Quick.at(i)<<" ";
+    if(output){
+        std::cout<<"true"<<" ";
+    }
+    else{
+        std::cout<<"false"<<" ";
+    }
 
-       }
-        std::cout<<"output2"<<std::endl;
+    for(int i = 0;i<int(list.size());i++){
+        std::cout<<result[i]<<" ";
+    }
 
-        std::cout<<RBS.search(vect, 8);
+
     return 0;
 }
