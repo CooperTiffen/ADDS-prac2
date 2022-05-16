@@ -1,33 +1,33 @@
-#include "Individual.h"
-#include "Mutator.h"
-#include "BitFlip.h"
-#include "Rearrange.h"
-#include "BitFlipProb.h"
+#include "BubbleSort.h"
+#include "QuickSort.h"
+#include "RecursiveBinarySearch.h"
+#include <vector>
 #include <iostream>
-
-Individual * execute(Individual * indPtr, Mutator * mPtr, int k){
-
-    return mPtr->mutate(indPtr, k);
-}
 
 int main(){
 
-    BitFlip bf;
-    Rearrange r;
+    std::vector<int> vect{-5, -8, -4, -2, -1};
+      int length = vect.size();
 
-    std::string binarystr1;
-    std::string binarystr2;
-    int k1;
-    int k2;
+      BubbleSort Bub;
+        std::vector<int> BubVect = Bub.sort(vect);
 
-    std::cin>>binarystr1>>k1>>binarystr2>>k2;
+       for(int i=0; i< length; i++){
+           std::cout<<BubVect.at(i)<<" ";
+       }
 
-    Individual first(binarystr1);
-    Individual second(binarystr2);
+    RecursiveBinarySearch RBS;
+    std::cout<<"Quicksort"<<std::endl;
 
-    Individual * offspring = execute(&first, &bf, k1);
-    Individual * offspring2 = execute(&second, &r, k2);
+       QuickSort QS;
+      std::vector<int> Quick = QS.sort(vect);
+       std::cout<<"output1"<<std::endl;
+        for(int i=0; i< length; i++){
+           std::cout<<Quick.at(i)<<" ";
 
-    std::cout<<offspring->getString()<<" "<<offspring2->getString()<<" "<<offspring2->getMaxOnes()<<std::endl;
+       }
+        std::cout<<"output2"<<std::endl;
+
+        std::cout<<RBS.search(vect, 8);
+    return 0;
 }
-
